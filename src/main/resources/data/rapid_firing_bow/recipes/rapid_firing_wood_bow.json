@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "X f",
+    " # ",
+    "f p"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "#": {
+      "item": "minecraft:bow"
+    },
+    "f": {
+      "item": "minecraft:feather"
+    },
+    "p": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "rapid_firing_bow:rapid_firing_wood_bow"
+  }
+}
