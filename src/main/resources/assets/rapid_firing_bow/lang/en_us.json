@@ -1,5 +1,8 @@
 {
   "itemGroup.rapid_firing_bow" : "Rapid Firing Bow",
 
-  "item.rapid_firing_bow.rapid_firing_wood_bow": "Rapid firing wood bow"
+  "item.rapid_firing_bow.rapid_firing_wood_bow": "Rapid firing wood bow",
+  "item.rapid_firing_bow.rapid_firing_iron_bow": "Rapid firing iron bow",
+  "item.rapid_firing_bow.rapid_firing_amethyst_bow": "Rapid firing amethyst bow",
+  "item.rapid_firing_bow.rapid_firing_diamond_bow": "Rapid firing diamond bow"
 }

@@ -1,5 +1,8 @@
 {
   "itemGroup.rapid_firing_bow" : "連射弓",
 
-  "item.rapid_firing_bow.rapid_firing_wood_bow": "連射弓(木)"
+  "item.rapid_firing_bow.rapid_firing_wood_bow": "連射弓(木)",
+  "item.rapid_firing_bow.rapid_firing_iron_bow": "連射弓(鉄)",
+  "item.rapid_firing_bow.rapid_firing_amethyst_bow": "連射弓(紫水晶)",
+  "item.rapid_firing_bow.rapid_firing_diamond_bow": "連射弓(金剛石)"
 }

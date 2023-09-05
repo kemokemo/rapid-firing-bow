@@ -39,6 +39,24 @@ public class RapidFiringBowMod
                     Config.RapidFiringWoodBow_IntervalFrames,
                     Config.RapidFiringWoodBow_Tier));
 
+    public static final RegistryObject<Item> RAPID_FIRING_IRON_BOW = RAPID_FIRING_BOWS.register("rapid_firing_iron_bow",
+            () -> new RapidFiringBow(new Item.Properties().stacksTo(1).durability(Config.RapidFiringIronBow_Durability),
+                    Config.RapidFiringIronBow_MaxShootTimes,
+                    Config.RapidFiringIronBow_IntervalFrames,
+                    Config.RapidFiringIronBow_Tier));
+
+    public static final RegistryObject<Item> RAPID_FIRING_AMETHYST_BOW = RAPID_FIRING_BOWS.register("rapid_firing_amethyst_bow",
+            () -> new RapidFiringBow(new Item.Properties().stacksTo(1).durability(Config.RapidFiringAmethystBow_Durability),
+                    Config.RapidFiringAmethystBow_MaxShootTimes,
+                    Config.RapidFiringAmethystBow_IntervalFrames,
+                    Config.RapidFiringAmethystBow_Tier));
+
+    public static final RegistryObject<Item> RAPID_FIRING_DIAMOND_BOW = RAPID_FIRING_BOWS.register("rapid_firing_diamond_bow",
+            () -> new RapidFiringBow(new Item.Properties().stacksTo(1).durability(Config.RapidFiringDiamondBow_Durability),
+                    Config.RapidFiringDiamondBow_MaxShootTimes,
+                    Config.RapidFiringDiamondBow_IntervalFrames,
+                    Config.RapidFiringDiamondBow_Tier));
+
     public static final RegistryObject<CreativeModeTab> RAPID_FIRING_BOW_TAB = CREATIVE_MODE_TABS.register("rapid_firing_bow_tab", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .title(Component.translatable("itemGroup.rapid_firing_bow"))

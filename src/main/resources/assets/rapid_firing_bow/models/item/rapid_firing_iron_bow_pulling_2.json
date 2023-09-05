@@ -1,0 +1,6 @@
+{
+    "parent": "rapid_firing_bow:item/rapid_firing_iron_bow",
+    "textures": {
+        "layer0": "rapid_firing_bow:item/rapid_firing_iron_bow_pulling_2"
+    }
+}
