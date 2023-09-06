@@ -4,8 +4,6 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -13,11 +11,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.ForgeTier;
+import net.minecraftforge.client.event.ComputeFovModifierEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -143,6 +140,25 @@ public class RapidFiringBow extends ProjectileWeaponItem implements Vanishable {
             _tickSecond = 0;
         } else {
             _tickSecond++;
+        }
+    }
+
+    // Copy from https://github.com/DirtEngineers/Squirtgun/blob/1.19.x/src/main/java/net/dirtengineers/squirtgun/client/events/ClientForgeEventHandler.java
+    // It's GNU General Public License v2.0
+    // https://github.com/DirtEngineers/Squirtgun/blob/1.19.x/LICENSE.txt
+    @SubscribeEvent
+    public void onComputeFovModifierEvent(ComputeFovModifierEvent event) {
+        if (event.getPlayer().isUsingItem() && event.getPlayer().getUseItem().getItem() instanceof RapidFiringBow) {
+            float fovModifier = 1f;
+            int ticksUsingItem = event.getPlayer().getTicksUsingItem();
+            float deltaTicks = (float) ticksUsingItem / 20.0F;
+            if (deltaTicks > 1.0F) {
+                deltaTicks = 1.0F;
+            } else {
+                deltaTicks *= deltaTicks;
+            }
+            fovModifier *= 1.0F - deltaTicks * 0.15F;
+            event.setNewFovModifier(fovModifier);
         }
     }
 
