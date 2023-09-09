@@ -11,6 +11,10 @@ public class BowModelEventHandler
     @SubscribeEvent
     public static void setModelProperties(FMLClientSetupEvent event)
     {
+        // If you add some awesome bows, please add this code block.
         BowUtils.setupBowModelProperties(RapidFiringBowMod.RAPID_FIRING_WOOD_BOW.get());
+        BowUtils.setupBowModelProperties(RapidFiringBowMod.RAPID_FIRING_IRON_BOW.get());
+        BowUtils.setupBowModelProperties(RapidFiringBowMod.RAPID_FIRING_AMETHYST_BOW.get());
+        BowUtils.setupBowModelProperties(RapidFiringBowMod.RAPID_FIRING_DIAMOND_BOW.get());
     }
 }

@@ -15,6 +15,7 @@ public class Config
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
     static ForgeConfigSpec SPEC = BUILDER.build();
 
+    // If you add some awesome bows, please add this code block.
     // Wood bow
     //  3 arrows, very slow firing speed, very low durability
     public static final int RapidFiringWoodBow_Durability = 100;

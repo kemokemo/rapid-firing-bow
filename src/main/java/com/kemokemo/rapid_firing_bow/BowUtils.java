@@ -6,7 +6,6 @@ import net.minecraft.world.item.Item;
 
 public final class BowUtils
 {
-    //  standard bow
     public static void setupBowModelProperties(Item item)
     {
         ItemProperties.register(item, new ResourceLocation("pull"), (itemStack, world, livingEntity, seed) -> {
