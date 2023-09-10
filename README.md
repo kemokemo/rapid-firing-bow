@@ -5,6 +5,8 @@
 This mod allows you to use a bow that can fire continuously.  
 The intent is to allow for the effective use of bows and arrows obtained from trading with Fletcher.
 
+[Operation instruction video](https://youtu.be/ifMLq_qzj0Q?si=AMuNQnWoj-LZmXU3)
+
 ## Feature
 
 | Name                      | Number of continuous shots | Shot interval | Durability |
