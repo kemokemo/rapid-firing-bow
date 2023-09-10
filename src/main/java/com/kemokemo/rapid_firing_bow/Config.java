@@ -7,13 +7,16 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeTier;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
 
-@Mod.EventBusSubscriber(modid = RapidFiringBowMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = RapidFiringBowMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Config
 {
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
-    static ForgeConfigSpec SPEC = BUILDER.build();
+    // If you have ForgeConfigSpecs values, add here.
+    static final ForgeConfigSpec SPEC = BUILDER.build();
 
     // If you add some awesome bows, please add this code block.
     // Wood bow
@@ -22,8 +25,7 @@ public class Config
     public static final int RapidFiringWoodBow_MaxShootTimes = 3;
     public static final int RapidFiringWoodBow_IntervalFrames = 50;
     public static final Tier RapidFiringWoodBow_Tier = new ForgeTier (2,250,6.0F,2.0F,
-            30, BlockTags.NEEDS_STONE_TOOL, () -> Ingredient.of(ItemTags.PLANKS)
-    );
+            30, BlockTags.NEEDS_STONE_TOOL, () -> Ingredient.of(ItemTags.PLANKS));
 
     // Iron bow
     //  5 arrows, slow firing speed, middle durability
@@ -51,4 +53,11 @@ public class Config
     public static final Tier RapidFiringDiamondBow_Tier = new ForgeTier (2,250,6.0F,2.0F,
             90, BlockTags.NEEDS_STONE_TOOL, () -> Ingredient.of(Items.DIAMOND)
     );
+
+
+    @SubscribeEvent
+    static void onLoad(final ModConfigEvent event)
+    {
+        // If there are tasks to be performed after the config load is finished, add here.
+    }
 }

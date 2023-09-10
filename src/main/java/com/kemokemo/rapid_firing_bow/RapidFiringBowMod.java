@@ -23,14 +23,14 @@ import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(RapidFiringBowMod.MODID)
+@Mod(RapidFiringBowMod.MOD_ID)
 public class RapidFiringBowMod
 {
-    public static final String MODID = "rapid_firing_bow";
+    public static final String MOD_ID = "rapid_firing_bow";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public static final DeferredRegister<Item> RAPID_FIRING_BOWS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
+    public static final DeferredRegister<Item> RAPID_FIRING_BOWS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
 
     // If you add some awesome bows, please add this code block.
     public static final RegistryObject<Item> RAPID_FIRING_WOOD_BOW = RAPID_FIRING_BOWS.register("rapid_firing_wood_bow",
@@ -108,7 +108,7 @@ public class RapidFiringBowMod
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
         @SubscribeEvent

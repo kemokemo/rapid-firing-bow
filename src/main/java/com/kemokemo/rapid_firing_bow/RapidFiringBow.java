@@ -22,7 +22,7 @@ import org.slf4j.Logger;
 
 import java.util.function.Predicate;
 
-public class RapidFiringBow extends ProjectileWeaponItem implements Vanishable {
+public class RapidFiringBow extends BowItem {
     public static final int MAX_DRAW_DURATION = 20;
     public static final int DEFAULT_RANGE = 15;
 
@@ -214,6 +214,6 @@ public class RapidFiringBow extends ProjectileWeaponItem implements Vanishable {
     }
 
     public int getEnchantmentValue() {
-        return _tier.getEnchantmentValue();
+        return 1;
     }
 }
