@@ -5,8 +5,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -20,12 +18,7 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.slf4j.Logger;
 
-import java.util.function.Predicate;
-
 public class RapidFiringBow extends BowItem {
-    public static final int MAX_DRAW_DURATION = 20;
-    public static final int DEFAULT_RANGE = 15;
-
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public RapidFiringBow(Item.Properties p_40660_, int maxShootTimes, int interval, Tier tier) {
@@ -162,58 +155,9 @@ public class RapidFiringBow extends BowItem {
         }
     }
 
-    public static float getPowerForTime(int p_40662_) {
-        float f = (float)p_40662_ / 20.0F;
-        f = (f * f + f * 2.0F) / 3.0F;
-        if (f > 1.0F) {
-            f = 1.0F;
-        }
-
-        return f;
-    }
-
-    public int getUseDuration(ItemStack p_40680_) {
-        return 72000;
-    }
-
-    public UseAnim getUseAnimation(ItemStack p_40678_) {
-        return UseAnim.BOW;
-    }
-
-    public InteractionResultHolder<ItemStack> use(Level p_40672_, Player p_40673_, InteractionHand p_40674_) {
-        ItemStack itemstack = p_40673_.getItemInHand(p_40674_);
-        boolean flag = !p_40673_.getProjectile(itemstack).isEmpty();
-
-        InteractionResultHolder<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onArrowNock(itemstack, p_40672_, p_40673_, p_40674_, flag);
-        if (ret != null) return ret;
-
-        if (!p_40673_.getAbilities().instabuild && !flag) {
-            return InteractionResultHolder.fail(itemstack);
-        } else {
-            p_40673_.startUsingItem(p_40674_);
-            return InteractionResultHolder.consume(itemstack);
-        }
-    }
-
-    public Predicate<ItemStack> getAllSupportedProjectiles() {
-        return ARROW_ONLY;
-    }
-
-    public AbstractArrow customArrow(AbstractArrow arrow) {
-        return arrow;
-    }
-
-    public int getDefaultProjectileRange() {
-        return 15;
-    }
-
     // enabled repair feature
     private Tier _tier;
     public boolean isValidRepairItem(ItemStack p_43311_, ItemStack p_43312_) {
         return _tier.getRepairIngredient().test(p_43312_) || super.isValidRepairItem(p_43311_, p_43312_);
-    }
-
-    public int getEnchantmentValue() {
-        return 1;
     }
 }
